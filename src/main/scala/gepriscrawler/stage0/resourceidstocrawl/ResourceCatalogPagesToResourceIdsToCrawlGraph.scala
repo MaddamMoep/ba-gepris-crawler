@@ -52,9 +52,9 @@ object ResourceCatalogPagesToResourceIdsToCrawlGraph {
             case resourceRegex(id) => id
             case _ => ""
           }
-
           print(s"\rReceived from catalog page the following resource for resource type '${resourceType}': id: $resourceId, name: $resourceName                         ")
           (resourceId -> resourceName)
+          
         }
 
         resourceIdsToNames

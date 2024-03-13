@@ -37,6 +37,7 @@ object CrawledResourceDetailDataGraph
         resp.status.intValue() match {
           case 200 =>
             print(s"\rReceived the detail page for the following resource for resource type '${resourceType}': id: $resourceId                                                   ")
+            Thread.sleep(50) //Slow down to avoid overloading Gepris
             resp.entity.dataBytes.fold[ByteString](ByteString(""))(_ ++ _)
               .map(fullEntityByteString => (resourceId -> Jsoup.parse(fullEntityByteString.utf8String).body()))
               .map(s => CrawledResourceData(resourceType, resourceId, crawledLanguage, s._2.toString))

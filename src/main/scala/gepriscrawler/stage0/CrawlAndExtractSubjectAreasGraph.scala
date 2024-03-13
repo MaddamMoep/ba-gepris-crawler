@@ -31,8 +31,9 @@ object CrawlAndExtractSubjectAreasGraph {
     val cookieFlow: FlowShape[Boolean, Cookie] = b.add(CookieFlowGraph.graph)
 
     // TODO: multi langauge support
-    val initialSubjectAreaUrl = b.add(Source.single("https://www.dfg.de/en/dfg_profile/statutory_bodies/review_boards/subject_areas/index.jsp"))
-//    val initialSubjectAreaUrl = b.add(Source.single("https://www.dfg.de/dfg_profil/gremien/fachkollegien/faecher/"))
+    //val initialSubjectAreaUrl = b.add(Source.single("https://www.dfg.de/en/dfg_profile/statutory_bodies/review_boards/subject_areas/index.jsp"))
+    val initialSubjectAreaUrl =b.add(Source.single("https://web.archive.org/web/20231003211105/https://www.dfg.de/en/dfg_profile/statutory_bodies/review_boards/subject_areas/index.jsp"))//old cause they changed the way of presenting the data
+    //val initialSubjectAreaUrl = b.add(Source.single("https://www.dfg.de/dfg_profil/gremien/fachkollegien/faecher/"))
 
     val subjectAreaRequestAndExtractorBC = b.add(Broadcast[ResearchArea](2))
 

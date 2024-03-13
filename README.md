@@ -50,6 +50,7 @@ Bei einem neuen Crawl oder fortsetzung auf Stufe 0 wird noch abgefragt, ob nur l
 ### Probleme während der Ausführung
 Es kann vorkommen, dass der Crawler vorzeitig terminiert, zum Beispiel weil das von der Gepris-Anwendung verwendete Cookie invalide geworden ist. Dies kann in Stufe 0 oder 1 passieren, da danach nur noch auf lokalen Daten gearbeietet wird.
 In diesem Fall kann der Crawling-Vorgang wie oben beschrieben fortgesetzt werden. 
+Um Problemen vorzubeugen wartet der Crawler immer wieder einige Zeit bis die nächste Seite aufgerufen wird, allerdings verlangsamt dies den Prozess. Ein nicht verlangsamter Prozess führt innerhalb von wenigen Sekunden dazu, dass keine Daten mehr abgerufen werden können.
 
 ## Erstellen der lauffähigen Crawler-Anwendung
 sbt verwendet einen veralteren Security Manager, daher ist es mit neuen jdk (aktuell) nicht verwendbar. Mit Java Version 8 funktioniert es.
@@ -183,6 +184,7 @@ Wie bereits beschrieben scheint das Gepris-System hier jedoch leider abzuweichen
 
 Es lassen sich aktuell nur ca. die Hälfte aller auf Projekten angegebenen Fächer in der offiziellen Fachsystematik wiederfinden. 
 
+Da sich ie Darstellung der Fachsystemaktik auf der DFG Website geändert hat, wird vom Crawler auf eine 2023 archivierte Version zugegriffen. Dies wird also nicht mehr aktuell gehalten.
 
 ## Ausgabe-Artefakte des Crawlers
 

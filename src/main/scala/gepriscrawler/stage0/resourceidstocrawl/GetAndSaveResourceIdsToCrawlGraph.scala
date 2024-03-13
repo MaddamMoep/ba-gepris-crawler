@@ -55,6 +55,7 @@ object GetAndSaveResourceIdsToCrawlGraph {
       val resourceIdsAndNamesBC = b.add(Broadcast[(String, String)](2))
 
       val numberOfResourceIdsToStatusFileSink = CrawlerHelpers.createTextFileWriterSink(s"$exportPath/number_of_${resourceName}s_to_crawl.txt")
+
       cookiePinger ~> cookieFlow ~> cookieBalancer
       cookieBalancer.out(0).take(1) ~> numberOfResources.in
 
